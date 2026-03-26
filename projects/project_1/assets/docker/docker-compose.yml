@@ -17,12 +17,12 @@ services:
       - zookeeper_data:/var/lib/zookeeper/data
       - zookeeper_logs:/var/lib/zookeeper/log
     healthcheck:
-      test: [ "CMD-SHELL", "echo ruok | nc localhost 2181 | grep imok" ]
+      test: [ "CMD-SHELL", "echo svr | nc localhost 2181 | grep imok" ]
       interval: 10s
       timeout: 5s
       retries: 5
-      networks:
-        - streamflow-network
+    networks:
+      - streamflow-network
 
   # =============================================================================
   # KAFKA (Confluent Platform)

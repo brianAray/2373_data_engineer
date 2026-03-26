@@ -1,0 +1,6 @@
+spark-submit \
+  --master "local[<THREAD NUMBER>]" \
+  --name "Production_Test_Run" \
+  --driver-memory <MEMORY AVAILABLE>G \
+  --conf "spark.sql.shuffle.partitions=<NUMBER OF PARTITIONS>" \
+  sensor_analysis.py

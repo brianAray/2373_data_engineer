@@ -3,7 +3,7 @@ User Events Producer
 Generates mock user activity events and publishes them to a Kafka topic.
 
 Usage:
-    python user_events_producer.py --bootstrap-servers localhost:9092 --topic user_events --interval 1.0
+    python user_events_producer.py --bootstrap-servers localhost:9094 --topic user_events --interval 1.0
 
 Dependencies:
     pip install kafka-python faker

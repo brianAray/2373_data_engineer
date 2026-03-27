@@ -3,7 +3,7 @@ Transaction Events Producer
 Generates mock e-commerce transaction events and publishes them to a Kafka topic.
 
 Usage:
-    python transaction_events_producer.py --bootstrap-servers localhost:9092 --topic transaction_events --interval 2.0
+    python transaction_events_producer.py --bootstrap-servers localhost:9094 --topic transaction_events --interval 2.0
 
 Dependencies:
     pip install kafka-python faker

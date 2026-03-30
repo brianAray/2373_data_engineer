@@ -1,0 +1,206 @@
+# StreamFlow Analytics Platform - Docker Compose Stack
+# All components run in Docker containers
+
+services:
+  # =============================================================================
+  # ZOOKEEPER (Required for Confluent Kafka)
+  # =============================================================================
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: streamflow-zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      KAFKA_OPTS: "-Dzookeeper.4lw.commands.whitelist=ruok"
+    volumes:
+      - zookeeper_data:/var/lib/zookeeper/data
+      - zookeeper_logs:/var/lib/zookeeper/log
+    healthcheck:
+      test: [ "CMD-SHELL", "echo ruok | nc localhost 2181 | grep imok" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - streamflow-network
+
+  # =============================================================================
+  # KAFKA (Confluent Platform)
+  # =============================================================================
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: streamflow-kafka
+    ports:
+      - "9092:9092"
+      - "9094:9094"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,EXTERNAL://0.0.0.0:9094
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_NUM_PARTITIONS: 3
+      KAFKA_DEFAULT_REPLICATION_FACTOR: 1
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    healthcheck:
+      test: [ "CMD-SHELL", "kafka-topics --bootstrap-server localhost:9092 --list" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    networks:
+      - streamflow-network
+
+  # =============================================================================
+  # KAFKA UI (For Debugging/Monitoring)
+  # =============================================================================
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: streamflow-kafka-ui
+    ports:
+      - "8080:8080"
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=streamflow
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
+    depends_on:
+      kafka:
+        condition: service_healthy
+    networks:
+      - streamflow-network
+
+  # =============================================================================
+  # SPARK (Master + Worker) - Using official Apache Spark image
+  # =============================================================================
+  # Init container to set up volume permissions
+  spark-init:
+    image: busybox
+    container_name: streamflow-spark-init
+    command: [ "sh", "-c", "mkdir -p /opt/spark-data/landing /opt/spark-data/gold && chmod -R 777 /opt/spark-data" ]
+    volumes:
+      - spark_data:/opt/spark-data
+    networks:
+      - streamflow-network
+
+  spark-master:
+    image: apache/spark:3.5.0
+    container_name: streamflow-spark-master
+    user: root
+    ports:
+      - "7077:7077"
+      - "8081:8080"
+    environment:
+      - SPARK_MASTER_HOST=spark-master
+      - SPARK_NO_DAEMONIZE=true
+    command: [ "/opt/spark/sbin/start-master.sh" ]
+    volumes:
+      - ./jobs:/opt/spark-jobs
+      - spark_data:/opt/spark-data
+    depends_on:
+      spark-init:
+        condition: service_completed_successfully
+    networks:
+      - streamflow-network
+
+  spark-worker:
+    image: apache/spark:3.5.0
+    container_name: streamflow-spark-worker
+    user: root
+    depends_on:
+      spark-init:
+        condition: service_completed_successfully
+      spark-master:
+        condition: service_started
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_WORKER_CORES=2
+      - SPARK_NO_DAEMONIZE=true
+    command: [ "/opt/spark/sbin/start-worker.sh", "spark://spark-master:7077" ]
+    volumes:
+      - ./jobs:/opt/spark-jobs
+      - spark_data:/opt/spark-data
+    networks:
+      - streamflow-network
+
+  # =============================================================================
+  # AIRFLOW (Custom Image with Spark Client)
+  # =============================================================================
+  postgres:
+      image: postgres:16
+      container_name: streamflow-postgres
+      environment:
+        - POSTGRES_USER=airflow
+        - POSTGRES_PASSWORD=airflow
+        - POSTGRES_DB=airflow
+      volumes:
+        - postgres_data:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD", "pg_isready", "-U", "airflow"]
+        interval: 10s
+        retries: 5
+      networks:
+        - streamflow-network
+  
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: streamflow-airflow
+    # Run as root to match Spark container permissions for shared volume access
+    user: root
+    ports:
+      - "8082:8080"
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__FERNET_KEY=XlHiiqF0hj2-1lLU4ODVSr_Wpa88VcUulI0leEYDxgM=
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW__WEBSERVER__SECRET_KEY=streamflow-secret-key
+      - _AIRFLOW_DB_MIGRATE=true
+      - _AIRFLOW_WWW_USER_CREATE=true
+      - _AIRFLOW_WWW_USER_USERNAME=admin
+      - _AIRFLOW_WWW_USER_PASSWORD=admin
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./scripts:/opt/airflow/scripts
+      - ./jobs:/opt/spark-jobs
+      - ./data:/opt/spark-data
+      - ./logs:/opt/airflow/logs
+      - airflow_data:/opt/airflow
+    command: standalone
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f http://localhost:8080/health || exit 1" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      spark-master:
+        condition: service_started
+    networks:
+      - streamflow-network
+
+# =============================================================================
+# NETWORKS & VOLUMES
+# =============================================================================
+networks:
+  streamflow-network:
+    driver: bridge
+
+volumes:
+  zookeeper_data:
+  zookeeper_logs:
+  kafka_data:
+  airflow_data:
+  spark_data:
+  postgres_data:

@@ -1,0 +1,18 @@
+[2026-03-30T14:49:43.542+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sensor_pipeline.generate_raw_data manual__2026-03-30T14:49:42.456776+00:00 [queued]>
+[2026-03-30T14:49:43.572+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sensor_pipeline.generate_raw_data manual__2026-03-30T14:49:42.456776+00:00 [queued]>
+[2026-03-30T14:49:43.573+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-03-30T14:49:43.616+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): generate_raw_data> on 2026-03-30 14:49:42.456776+00:00
+[2026-03-30T14:49:43.624+0000] {standard_task_runner.py:60} INFO - Started process 288 to run task
+[2026-03-30T14:49:43.634+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'sensor_pipeline', 'generate_raw_data', 'manual__2026-03-30T14:49:42.456776+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/sensor_pipeline_dag.py', '--cfg-path', '/tmp/tmporpfgoqx']
+[2026-03-30T14:49:43.638+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask generate_raw_data
+[2026-03-30T14:49:43.806+0000] {task_command.py:423} INFO - Running <TaskInstance: sensor_pipeline.generate_raw_data manual__2026-03-30T14:49:42.456776+00:00 [running]> on host 0927b5195af5
+[2026-03-30T14:49:44.749+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sensor_pipeline' AIRFLOW_CTX_TASK_ID='generate_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2026-03-30T14:49:42.456776+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-30T14:49:42.456776+00:00'
+[2026-03-30T14:49:44.750+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-30T14:49:44.752+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/***/scripts/generator.py']
+[2026-03-30T14:49:44.783+0000] {subprocess.py:86} INFO - Output:
+[2026-03-30T14:50:34.629+0000] {subprocess.py:93} INFO - Generating /opt/spark-data/raw_sensors_large.txt...
+[2026-03-30T14:50:34.631+0000] {subprocess.py:93} INFO - Done! /opt/spark-data/raw_sensors_large.txt created.
+[2026-03-30T14:50:34.632+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-30T14:50:34.671+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=sensor_pipeline, task_id=generate_raw_data, execution_date=20260330T144942, start_date=20260330T144943, end_date=20260330T145034
+[2026-03-30T14:50:34.694+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-30T14:50:34.724+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

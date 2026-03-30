@@ -1,0 +1,472 @@
+[2026-03-30T14:50:35.517+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sensor_pipeline.spark_clean_data manual__2026-03-30T14:49:42.456776+00:00 [queued]>
+[2026-03-30T14:50:35.527+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sensor_pipeline.spark_clean_data manual__2026-03-30T14:49:42.456776+00:00 [queued]>
+[2026-03-30T14:50:35.527+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-03-30T14:50:35.581+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): spark_clean_data> on 2026-03-30 14:49:42.456776+00:00
+[2026-03-30T14:50:35.587+0000] {standard_task_runner.py:60} INFO - Started process 314 to run task
+[2026-03-30T14:50:35.602+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'sensor_pipeline', 'spark_clean_data', 'manual__2026-03-30T14:49:42.456776+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/sensor_pipeline_dag.py', '--cfg-path', '/tmp/tmpi4i3o8lp']
+[2026-03-30T14:50:35.605+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask spark_clean_data
+[2026-03-30T14:50:35.724+0000] {task_command.py:423} INFO - Running <TaskInstance: sensor_pipeline.spark_clean_data manual__2026-03-30T14:49:42.456776+00:00 [running]> on host 0927b5195af5
+[2026-03-30T14:50:35.916+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sensor_pipeline' AIRFLOW_CTX_TASK_ID='spark_clean_data' AIRFLOW_CTX_EXECUTION_DATE='2026-03-30T14:49:42.456776+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-30T14:49:42.456776+00:00'
+[2026-03-30T14:50:35.917+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-30T14:50:35.918+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'spark-submit --master local[*] /opt/***/scripts/clean_data.py']
+[2026-03-30T14:50:35.934+0000] {subprocess.py:86} INFO - Output:
+[2026-03-30T14:50:36.000+0000] {subprocess.py:93} INFO - /opt/spark/bin/load-spark-env.sh: line 68: ps: command not found
+[2026-03-30T14:50:41.686+0000] {subprocess.py:93} INFO - 26/03/30 14:50:41 INFO SparkContext: Running Spark version 3.5.0
+[2026-03-30T14:50:41.693+0000] {subprocess.py:93} INFO - 26/03/30 14:50:41 INFO SparkContext: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+[2026-03-30T14:50:41.693+0000] {subprocess.py:93} INFO - 26/03/30 14:50:41 INFO SparkContext: Java version 17.0.18
+[2026-03-30T14:50:41.885+0000] {subprocess.py:93} INFO - 26/03/30 14:50:41 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-03-30T14:50:42.071+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO ResourceUtils: ==============================================================
+[2026-03-30T14:50:42.072+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2026-03-30T14:50:42.074+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO ResourceUtils: ==============================================================
+[2026-03-30T14:50:42.075+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO SparkContext: Submitted application: SensorCleaning
+[2026-03-30T14:50:42.147+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2026-03-30T14:50:42.161+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO ResourceProfile: Limiting resource is cpu
+[2026-03-30T14:50:42.162+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2026-03-30T14:50:42.416+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO SecurityManager: Changing view acls to: root
+[2026-03-30T14:50:42.417+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO SecurityManager: Changing modify acls to: root
+[2026-03-30T14:50:42.418+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO SecurityManager: Changing view acls groups to:
+[2026-03-30T14:50:42.419+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO SecurityManager: Changing modify acls groups to:
+[2026-03-30T14:50:42.420+0000] {subprocess.py:93} INFO - 26/03/30 14:50:42 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+[2026-03-30T14:50:43.177+0000] {subprocess.py:93} INFO - 26/03/30 14:50:43 INFO Utils: Successfully started service 'sparkDriver' on port 45211.
+[2026-03-30T14:50:43.261+0000] {subprocess.py:93} INFO - 26/03/30 14:50:43 INFO SparkEnv: Registering MapOutputTracker
+[2026-03-30T14:50:43.348+0000] {subprocess.py:93} INFO - 26/03/30 14:50:43 INFO SparkEnv: Registering BlockManagerMaster
+[2026-03-30T14:50:43.398+0000] {subprocess.py:93} INFO - 26/03/30 14:50:43 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2026-03-30T14:50:43.399+0000] {subprocess.py:93} INFO - 26/03/30 14:50:43 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2026-03-30T14:50:43.411+0000] {subprocess.py:93} INFO - 26/03/30 14:50:43 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2026-03-30T14:50:43.504+0000] {subprocess.py:93} INFO - 26/03/30 14:50:43 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-17b05541-20eb-4ffa-b45a-57fd5b19775b
+[2026-03-30T14:50:43.568+0000] {subprocess.py:93} INFO - 26/03/30 14:50:43 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2026-03-30T14:50:43.611+0000] {subprocess.py:93} INFO - 26/03/30 14:50:43 INFO SparkEnv: Registering OutputCommitCoordinator
+[2026-03-30T14:50:44.113+0000] {subprocess.py:93} INFO - 26/03/30 14:50:44 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2026-03-30T14:50:44.493+0000] {subprocess.py:93} INFO - 26/03/30 14:50:44 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2026-03-30T14:50:45.042+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO Executor: Starting executor ID driver on host 0927b5195af5
+[2026-03-30T14:50:45.043+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO Executor: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+[2026-03-30T14:50:45.043+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO Executor: Java version 17.0.18
+[2026-03-30T14:50:45.061+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2026-03-30T14:50:45.068+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@2832bc09 for default.
+[2026-03-30T14:50:45.131+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 44963.
+[2026-03-30T14:50:45.132+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO NettyBlockTransferService: Server created on 0927b5195af5:44963
+[2026-03-30T14:50:45.136+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2026-03-30T14:50:45.160+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 0927b5195af5, 44963, None)
+[2026-03-30T14:50:45.165+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO BlockManagerMasterEndpoint: Registering block manager 0927b5195af5:44963 with 434.4 MiB RAM, BlockManagerId(driver, 0927b5195af5, 44963, None)
+[2026-03-30T14:50:45.172+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 0927b5195af5, 44963, None)
+[2026-03-30T14:50:45.176+0000] {subprocess.py:93} INFO - 26/03/30 14:50:45 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 0927b5195af5, 44963, None)
+[2026-03-30T14:50:47.260+0000] {subprocess.py:93} INFO - 26/03/30 14:50:47 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2026-03-30T14:50:47.277+0000] {subprocess.py:93} INFO - 26/03/30 14:50:47 INFO SharedState: Warehouse path is 'file:/tmp/***tmp5621u7bv/spark-warehouse'.
+[2026-03-30T14:50:48.982+0000] {subprocess.py:93} INFO - 26/03/30 14:50:48 INFO InMemoryFileIndex: It took 59 ms to list leaf files for 1 paths.
+[2026-03-30T14:50:51.470+0000] {subprocess.py:93} INFO - 26/03/30 14:50:51 INFO FileSourceStrategy: Pushed Filters: IsNotNull(value)
+[2026-03-30T14:50:51.474+0000] {subprocess.py:93} INFO - 26/03/30 14:50:51 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(value#0),isnotnull(cast(split(value#0, ,, -1)[1] as float)),NOT split(value#0, ,, -1)[0] IN (SN_09,SN_13),StartsWith(split(value#0, ,, -1)[0], SN_)
+[2026-03-30T14:50:51.673+0000] {subprocess.py:93} INFO - 26/03/30 14:50:51 INFO ParquetUtils: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:51.746+0000] {subprocess.py:93} INFO - 26/03/30 14:50:51 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:51.747+0000] {subprocess.py:93} INFO - 26/03/30 14:50:51 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:51.748+0000] {subprocess.py:93} INFO - 26/03/30 14:50:51 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:51.748+0000] {subprocess.py:93} INFO - 26/03/30 14:50:51 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:51.748+0000] {subprocess.py:93} INFO - 26/03/30 14:50:51 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:51.749+0000] {subprocess.py:93} INFO - 26/03/30 14:50:51 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:52.681+0000] {subprocess.py:93} INFO - 26/03/30 14:50:52 INFO CodeGenerator: Code generated in 363.931747 ms
+[2026-03-30T14:50:52.774+0000] {subprocess.py:93} INFO - 26/03/30 14:50:52 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 199.3 KiB, free 434.2 MiB)
+[2026-03-30T14:50:52.860+0000] {subprocess.py:93} INFO - 26/03/30 14:50:52 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 34.2 KiB, free 434.2 MiB)
+[2026-03-30T14:50:52.863+0000] {subprocess.py:93} INFO - 26/03/30 14:50:52 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 0927b5195af5:44963 (size: 34.2 KiB, free: 434.4 MiB)
+[2026-03-30T14:50:52.868+0000] {subprocess.py:93} INFO - 26/03/30 14:50:52 INFO SparkContext: Created broadcast 0 from parquet at NativeMethodAccessorImpl.java:0
+[2026-03-30T14:50:52.883+0000] {subprocess.py:93} INFO - 26/03/30 14:50:52 INFO FileSourceScanExec: Planning scan with bin packing, max size: 46458383 bytes, open cost is considered as scanning 4194304 bytes.
+[2026-03-30T14:50:53.065+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:0
+[2026-03-30T14:50:53.085+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO DAGScheduler: Got job 0 (parquet at NativeMethodAccessorImpl.java:0) with 8 output partitions
+[2026-03-30T14:50:53.086+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO DAGScheduler: Final stage: ResultStage 0 (parquet at NativeMethodAccessorImpl.java:0)
+[2026-03-30T14:50:53.087+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO DAGScheduler: Parents of final stage: List()
+[2026-03-30T14:50:53.090+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO DAGScheduler: Missing parents: List()
+[2026-03-30T14:50:53.095+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[3] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2026-03-30T14:50:53.253+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 219.0 KiB, free 434.0 MiB)
+[2026-03-30T14:50:53.258+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 78.2 KiB, free 433.9 MiB)
+[2026-03-30T14:50:53.259+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 0927b5195af5:44963 (size: 78.2 KiB, free: 434.3 MiB)
+[2026-03-30T14:50:53.260+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1580
+[2026-03-30T14:50:53.277+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO DAGScheduler: Submitting 8 missing tasks from ResultStage 0 (MapPartitionsRDD[3] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7))
+[2026-03-30T14:50:53.278+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO TaskSchedulerImpl: Adding task set 0.0 with 8 tasks resource profile 0
+[2026-03-30T14:50:53.326+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (0927b5195af5, executor driver, partition 0, PROCESS_LOCAL, 8222 bytes)
+[2026-03-30T14:50:53.331+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (0927b5195af5, executor driver, partition 1, PROCESS_LOCAL, 8222 bytes)
+[2026-03-30T14:50:53.332+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (0927b5195af5, executor driver, partition 2, PROCESS_LOCAL, 8222 bytes)
+[2026-03-30T14:50:53.334+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (0927b5195af5, executor driver, partition 3, PROCESS_LOCAL, 8222 bytes)
+[2026-03-30T14:50:53.335+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4) (0927b5195af5, executor driver, partition 4, PROCESS_LOCAL, 8222 bytes)
+[2026-03-30T14:50:53.336+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5) (0927b5195af5, executor driver, partition 5, PROCESS_LOCAL, 8222 bytes)
+[2026-03-30T14:50:53.337+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6) (0927b5195af5, executor driver, partition 6, PROCESS_LOCAL, 8222 bytes)
+[2026-03-30T14:50:53.338+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7) (0927b5195af5, executor driver, partition 7, PROCESS_LOCAL, 8222 bytes)
+[2026-03-30T14:50:53.354+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO Executor: Running task 5.0 in stage 0.0 (TID 5)
+[2026-03-30T14:50:53.354+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO Executor: Running task 4.0 in stage 0.0 (TID 4)
+[2026-03-30T14:50:53.355+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO Executor: Running task 2.0 in stage 0.0 (TID 2)
+[2026-03-30T14:50:53.355+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO Executor: Running task 6.0 in stage 0.0 (TID 6)
+[2026-03-30T14:50:53.355+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+[2026-03-30T14:50:53.355+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO Executor: Running task 3.0 in stage 0.0 (TID 3)
+[2026-03-30T14:50:53.355+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+[2026-03-30T14:50:53.361+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO Executor: Running task 7.0 in stage 0.0 (TID 7)
+[2026-03-30T14:50:53.860+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO CodeGenerator: Code generated in 55.810378 ms
+[2026-03-30T14:50:53.872+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.872+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.873+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.873+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.873+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.873+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.874+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.874+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.874+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.874+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.874+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.874+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.874+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.875+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.875+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.875+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.875+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.877+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.878+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileScanRDD: Reading File path: file:///opt/spark-data/raw_sensors_large.txt, range: 92916766-139375149, partition values: [empty row]
+[2026-03-30T14:50:53.881+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileScanRDD: Reading File path: file:///opt/spark-data/raw_sensors_large.txt, range: 325208681-367472767, partition values: [empty row]
+[2026-03-30T14:50:53.883+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.887+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.888+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.889+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.889+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.889+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.889+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.890+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.890+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.890+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.890+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileScanRDD: Reading File path: file:///opt/spark-data/raw_sensors_large.txt, range: 185833532-232291915, partition values: [empty row]
+[2026-03-30T14:50:53.891+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.891+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.891+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.892+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.892+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileScanRDD: Reading File path: file:///opt/spark-data/raw_sensors_large.txt, range: 232291915-278750298, partition values: [empty row]
+[2026-03-30T14:50:53.892+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.892+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.893+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.893+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.893+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.893+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.893+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.893+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.894+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileScanRDD: Reading File path: file:///opt/spark-data/raw_sensors_large.txt, range: 139375149-185833532, partition values: [empty row]
+[2026-03-30T14:50:53.895+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.895+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using user defined output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.895+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.895+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.895+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+[2026-03-30T14:50:53.896+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+[2026-03-30T14:50:53.896+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.896+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileScanRDD: Reading File path: file:///opt/spark-data/raw_sensors_large.txt, range: 278750298-325208681, partition values: [empty row]
+[2026-03-30T14:50:53.896+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO SQLHadoopMapReduceCommitProtocol: Using output committer class org.apache.parquet.hadoop.ParquetOutputCommitter
+[2026-03-30T14:50:53.896+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO FileScanRDD: Reading File path: file:///opt/spark-data/raw_sensors_large.txt, range: 46458383-92916766, partition values: [empty row]
+[2026-03-30T14:50:53.912+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:53.918+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:53.938+0000] {subprocess.py:93} INFO - 26/03/30 14:50:53 INFO CodeGenerator: Code generated in 27.544116 ms
+[2026-03-30T14:50:54.001+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2026-03-30T14:50:54.033+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.034+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.034+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.034+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.034+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.034+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.034+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.034+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.035+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.035+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.035+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2026-03-30T14:50:54.036+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2026-03-30T14:50:54.036+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.037+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2026-03-30T14:50:54.037+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2026-03-30T14:50:54.042+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.043+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2026-03-30T14:50:54.043+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.043+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecConfig: Compression: SNAPPY
+[2026-03-30T14:50:54.043+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2026-03-30T14:50:54.049+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2026-03-30T14:50:54.092+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2026-03-30T14:50:54.092+0000] {subprocess.py:93} INFO - {
+[2026-03-30T14:50:54.093+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2026-03-30T14:50:54.093+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2026-03-30T14:50:54.093+0000] {subprocess.py:93} INFO -     "name" : "value",
+[2026-03-30T14:50:54.093+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.094+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.094+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.094+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.094+0000] {subprocess.py:93} INFO -     "name" : "sensor_id",
+[2026-03-30T14:50:54.094+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.095+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.095+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.095+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.095+0000] {subprocess.py:93} INFO -     "name" : "temp",
+[2026-03-30T14:50:54.096+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2026-03-30T14:50:54.096+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.096+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.096+0000] {subprocess.py:93} INFO -   } ]
+[2026-03-30T14:50:54.096+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.097+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2026-03-30T14:50:54.097+0000] {subprocess.py:93} INFO - message spark_schema {
+[2026-03-30T14:50:54.097+0000] {subprocess.py:93} INFO -   optional binary value (STRING);
+[2026-03-30T14:50:54.097+0000] {subprocess.py:93} INFO -   optional binary sensor_id (STRING);
+[2026-03-30T14:50:54.097+0000] {subprocess.py:93} INFO -   optional float temp;
+[2026-03-30T14:50:54.097+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.098+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.098+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.098+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2026-03-30T14:50:54.098+0000] {subprocess.py:93} INFO - {
+[2026-03-30T14:50:54.099+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2026-03-30T14:50:54.099+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2026-03-30T14:50:54.099+0000] {subprocess.py:93} INFO -     "name" : "value",
+[2026-03-30T14:50:54.099+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.099+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.099+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.100+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.100+0000] {subprocess.py:93} INFO -     "name" : "sensor_id",
+[2026-03-30T14:50:54.100+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.100+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.101+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.101+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.101+0000] {subprocess.py:93} INFO -     "name" : "temp",
+[2026-03-30T14:50:54.101+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2026-03-30T14:50:54.101+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.101+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.101+0000] {subprocess.py:93} INFO -   } ]
+[2026-03-30T14:50:54.101+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.102+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2026-03-30T14:50:54.102+0000] {subprocess.py:93} INFO - message spark_schema {
+[2026-03-30T14:50:54.102+0000] {subprocess.py:93} INFO -   optional binary value (STRING);
+[2026-03-30T14:50:54.102+0000] {subprocess.py:93} INFO -   optional binary sensor_id (STRING);
+[2026-03-30T14:50:54.102+0000] {subprocess.py:93} INFO -   optional float temp;
+[2026-03-30T14:50:54.103+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.103+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.103+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.104+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2026-03-30T14:50:54.104+0000] {subprocess.py:93} INFO - {
+[2026-03-30T14:50:54.105+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2026-03-30T14:50:54.105+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2026-03-30T14:50:54.105+0000] {subprocess.py:93} INFO -     "name" : "value",
+[2026-03-30T14:50:54.106+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.106+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.108+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.109+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.109+0000] {subprocess.py:93} INFO -     "name" : "sensor_id",
+[2026-03-30T14:50:54.109+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.110+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.110+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.110+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.110+0000] {subprocess.py:93} INFO -     "name" : "temp",
+[2026-03-30T14:50:54.110+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2026-03-30T14:50:54.111+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.111+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.111+0000] {subprocess.py:93} INFO -   } ]
+[2026-03-30T14:50:54.111+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.111+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2026-03-30T14:50:54.111+0000] {subprocess.py:93} INFO - message spark_schema {
+[2026-03-30T14:50:54.112+0000] {subprocess.py:93} INFO -   optional binary value (STRING);
+[2026-03-30T14:50:54.112+0000] {subprocess.py:93} INFO -   optional binary sensor_id (STRING);
+[2026-03-30T14:50:54.112+0000] {subprocess.py:93} INFO -   optional float temp;
+[2026-03-30T14:50:54.112+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.112+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.112+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.113+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2026-03-30T14:50:54.113+0000] {subprocess.py:93} INFO - {
+[2026-03-30T14:50:54.113+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2026-03-30T14:50:54.113+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2026-03-30T14:50:54.113+0000] {subprocess.py:93} INFO -     "name" : "value",
+[2026-03-30T14:50:54.113+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.113+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.114+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.114+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.114+0000] {subprocess.py:93} INFO -     "name" : "sensor_id",
+[2026-03-30T14:50:54.114+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.114+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.115+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.115+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.115+0000] {subprocess.py:93} INFO -     "name" : "temp",
+[2026-03-30T14:50:54.115+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2026-03-30T14:50:54.115+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.115+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.115+0000] {subprocess.py:93} INFO -   } ]
+[2026-03-30T14:50:54.116+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.116+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2026-03-30T14:50:54.116+0000] {subprocess.py:93} INFO - message spark_schema {
+[2026-03-30T14:50:54.116+0000] {subprocess.py:93} INFO -   optional binary value (STRING);
+[2026-03-30T14:50:54.116+0000] {subprocess.py:93} INFO -   optional binary sensor_id (STRING);
+[2026-03-30T14:50:54.117+0000] {subprocess.py:93} INFO -   optional float temp;
+[2026-03-30T14:50:54.117+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.117+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.117+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.118+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2026-03-30T14:50:54.118+0000] {subprocess.py:93} INFO - {
+[2026-03-30T14:50:54.126+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2026-03-30T14:50:54.127+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2026-03-30T14:50:54.129+0000] {subprocess.py:93} INFO -     "name" : "value",
+[2026-03-30T14:50:54.129+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.129+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.129+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.130+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.130+0000] {subprocess.py:93} INFO -     "name" : "sensor_id",
+[2026-03-30T14:50:54.130+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.130+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.131+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.131+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.135+0000] {subprocess.py:93} INFO -     "name" : "temp",
+[2026-03-30T14:50:54.135+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2026-03-30T14:50:54.136+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.136+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.136+0000] {subprocess.py:93} INFO -   } ]
+[2026-03-30T14:50:54.136+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.137+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2026-03-30T14:50:54.137+0000] {subprocess.py:93} INFO - message spark_schema {
+[2026-03-30T14:50:54.137+0000] {subprocess.py:93} INFO -   optional binary value (STRING);
+[2026-03-30T14:50:54.137+0000] {subprocess.py:93} INFO -   optional binary sensor_id (STRING);
+[2026-03-30T14:50:54.137+0000] {subprocess.py:93} INFO -   optional float temp;
+[2026-03-30T14:50:54.138+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.138+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.138+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.139+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2026-03-30T14:50:54.140+0000] {subprocess.py:93} INFO - {
+[2026-03-30T14:50:54.143+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2026-03-30T14:50:54.146+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2026-03-30T14:50:54.147+0000] {subprocess.py:93} INFO -     "name" : "value",
+[2026-03-30T14:50:54.147+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.147+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.147+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.148+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.148+0000] {subprocess.py:93} INFO -     "name" : "sensor_id",
+[2026-03-30T14:50:54.148+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.148+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.148+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.148+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.149+0000] {subprocess.py:93} INFO -     "name" : "temp",
+[2026-03-30T14:50:54.149+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2026-03-30T14:50:54.149+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.149+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.150+0000] {subprocess.py:93} INFO -   } ]
+[2026-03-30T14:50:54.150+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.150+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2026-03-30T14:50:54.156+0000] {subprocess.py:93} INFO - message spark_schema {
+[2026-03-30T14:50:54.158+0000] {subprocess.py:93} INFO -   optional binary value (STRING);
+[2026-03-30T14:50:54.158+0000] {subprocess.py:93} INFO -   optional binary sensor_id (STRING);
+[2026-03-30T14:50:54.159+0000] {subprocess.py:93} INFO -   optional float temp;
+[2026-03-30T14:50:54.159+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.159+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.160+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.160+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2026-03-30T14:50:54.160+0000] {subprocess.py:93} INFO - {
+[2026-03-30T14:50:54.161+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2026-03-30T14:50:54.162+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2026-03-30T14:50:54.162+0000] {subprocess.py:93} INFO -     "name" : "value",
+[2026-03-30T14:50:54.162+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.163+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.163+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.163+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.163+0000] {subprocess.py:93} INFO -     "name" : "sensor_id",
+[2026-03-30T14:50:54.164+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.164+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.164+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.164+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.164+0000] {subprocess.py:93} INFO -     "name" : "temp",
+[2026-03-30T14:50:54.164+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2026-03-30T14:50:54.165+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.165+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.165+0000] {subprocess.py:93} INFO -   } ]
+[2026-03-30T14:50:54.165+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.165+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2026-03-30T14:50:54.165+0000] {subprocess.py:93} INFO - message spark_schema {
+[2026-03-30T14:50:54.166+0000] {subprocess.py:93} INFO -   optional binary value (STRING);
+[2026-03-30T14:50:54.166+0000] {subprocess.py:93} INFO -   optional binary sensor_id (STRING);
+[2026-03-30T14:50:54.166+0000] {subprocess.py:93} INFO -   optional float temp;
+[2026-03-30T14:50:54.166+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.166+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.166+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.166+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2026-03-30T14:50:54.167+0000] {subprocess.py:93} INFO - {
+[2026-03-30T14:50:54.167+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2026-03-30T14:50:54.167+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2026-03-30T14:50:54.167+0000] {subprocess.py:93} INFO -     "name" : "value",
+[2026-03-30T14:50:54.167+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.168+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.168+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.168+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.168+0000] {subprocess.py:93} INFO -     "name" : "sensor_id",
+[2026-03-30T14:50:54.168+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2026-03-30T14:50:54.168+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.169+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.169+0000] {subprocess.py:93} INFO -   }, {
+[2026-03-30T14:50:54.169+0000] {subprocess.py:93} INFO -     "name" : "temp",
+[2026-03-30T14:50:54.169+0000] {subprocess.py:93} INFO -     "type" : "float",
+[2026-03-30T14:50:54.169+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2026-03-30T14:50:54.169+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2026-03-30T14:50:54.170+0000] {subprocess.py:93} INFO -   } ]
+[2026-03-30T14:50:54.170+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.170+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2026-03-30T14:50:54.170+0000] {subprocess.py:93} INFO - message spark_schema {
+[2026-03-30T14:50:54.170+0000] {subprocess.py:93} INFO -   optional binary value (STRING);
+[2026-03-30T14:50:54.170+0000] {subprocess.py:93} INFO -   optional binary sensor_id (STRING);
+[2026-03-30T14:50:54.171+0000] {subprocess.py:93} INFO -   optional float temp;
+[2026-03-30T14:50:54.171+0000] {subprocess.py:93} INFO - }
+[2026-03-30T14:50:54.171+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.171+0000] {subprocess.py:93} INFO - 
+[2026-03-30T14:50:54.275+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecPool: Got brand-new compressor [.snappy]
+[2026-03-30T14:50:54.276+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecPool: Got brand-new compressor [.snappy]
+[2026-03-30T14:50:54.276+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecPool: Got brand-new compressor [.snappy]
+[2026-03-30T14:50:54.277+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecPool: Got brand-new compressor [.snappy]
+[2026-03-30T14:50:54.277+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecPool: Got brand-new compressor [.snappy]
+[2026-03-30T14:50:54.277+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecPool: Got brand-new compressor [.snappy]
+[2026-03-30T14:50:54.277+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecPool: Got brand-new compressor [.snappy]
+[2026-03-30T14:50:54.277+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO CodecPool: Got brand-new compressor [.snappy]
+[2026-03-30T14:50:54.745+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 INFO FileScanRDD: Reading File path: file:///opt/spark-data/raw_sensors_large.txt, range: 0-46458383, partition values: [empty row]
+[2026-03-30T14:50:54.752+0000] {subprocess.py:93} INFO - 26/03/30 14:50:54 WARN MemoryManager: Total allocation exceeds 95.00% (1,020,054,720 bytes) of heap memory
+[2026-03-30T14:50:54.752+0000] {subprocess.py:93} INFO - Scaling row group sizes to 95.00% for 8 writers
+[2026-03-30T14:51:33.292+0000] {subprocess.py:93} INFO - 26/03/30 14:51:33 INFO FileOutputCommitter: Saved output of task 'attempt_202603301450537225701816359811631_0000_m_000007_7' to file:/opt/spark-data/cleaned_sensors.parquet/_temporary/0/task_202603301450537225701816359811631_0000_m_000007
+[2026-03-30T14:51:33.293+0000] {subprocess.py:93} INFO - 26/03/30 14:51:33 INFO SparkHadoopMapRedUtil: attempt_202603301450537225701816359811631_0000_m_000007_7: Committed. Elapsed time: 3 ms.
+[2026-03-30T14:51:33.463+0000] {subprocess.py:93} INFO - 26/03/30 14:51:33 INFO Executor: Finished task 7.0 in stage 0.0 (TID 7). 2669 bytes result sent to driver
+[2026-03-30T14:51:33.593+0000] {subprocess.py:93} INFO - 26/03/30 14:51:33 INFO TaskSetManager: Finished task 7.0 in stage 0.0 (TID 7) in 40253 ms on 0927b5195af5 (executor driver) (1/8)
+[2026-03-30T14:51:33.754+0000] {subprocess.py:93} INFO - 26/03/30 14:51:33 INFO FileOutputCommitter: Saved output of task 'attempt_202603301450537225701816359811631_0000_m_000005_5' to file:/opt/spark-data/cleaned_sensors.parquet/_temporary/0/task_202603301450537225701816359811631_0000_m_000005
+[2026-03-30T14:51:33.754+0000] {subprocess.py:93} INFO - 26/03/30 14:51:33 INFO SparkHadoopMapRedUtil: attempt_202603301450537225701816359811631_0000_m_000005_5: Committed. Elapsed time: 1 ms.
+[2026-03-30T14:51:33.759+0000] {subprocess.py:93} INFO - 26/03/30 14:51:33 INFO Executor: Finished task 5.0 in stage 0.0 (TID 5). 2626 bytes result sent to driver
+[2026-03-30T14:51:33.778+0000] {subprocess.py:93} INFO - 26/03/30 14:51:33 INFO TaskSetManager: Finished task 5.0 in stage 0.0 (TID 5) in 40442 ms on 0927b5195af5 (executor driver) (2/8)
+[2026-03-30T14:51:34.205+0000] {subprocess.py:93} INFO - 26/03/30 14:51:34 INFO FileOutputCommitter: Saved output of task 'attempt_202603301450537225701816359811631_0000_m_000006_6' to file:/opt/spark-data/cleaned_sensors.parquet/_temporary/0/task_202603301450537225701816359811631_0000_m_000006
+[2026-03-30T14:51:34.206+0000] {subprocess.py:93} INFO - 26/03/30 14:51:34 INFO SparkHadoopMapRedUtil: attempt_202603301450537225701816359811631_0000_m_000006_6: Committed. Elapsed time: 2 ms.
+[2026-03-30T14:51:34.214+0000] {subprocess.py:93} INFO - 26/03/30 14:51:34 INFO FileOutputCommitter: Saved output of task 'attempt_202603301450537225701816359811631_0000_m_000004_4' to file:/opt/spark-data/cleaned_sensors.parquet/_temporary/0/task_202603301450537225701816359811631_0000_m_000004
+[2026-03-30T14:51:34.215+0000] {subprocess.py:93} INFO - 26/03/30 14:51:34 INFO SparkHadoopMapRedUtil: attempt_202603301450537225701816359811631_0000_m_000004_4: Committed. Elapsed time: 1 ms.
+[2026-03-30T14:51:34.246+0000] {subprocess.py:93} INFO - 26/03/30 14:51:34 INFO Executor: Finished task 6.0 in stage 0.0 (TID 6). 2669 bytes result sent to driver
+[2026-03-30T14:51:34.319+0000] {subprocess.py:93} INFO - 26/03/30 14:51:34 INFO Executor: Finished task 4.0 in stage 0.0 (TID 4). 2626 bytes result sent to driver
+[2026-03-30T14:51:34.382+0000] {subprocess.py:93} INFO - 26/03/30 14:51:34 INFO TaskSetManager: Finished task 4.0 in stage 0.0 (TID 4) in 41047 ms on 0927b5195af5 (executor driver) (3/8)
+[2026-03-30T14:51:34.395+0000] {subprocess.py:93} INFO - 26/03/30 14:51:34 INFO TaskSetManager: Finished task 6.0 in stage 0.0 (TID 6) in 41048 ms on 0927b5195af5 (executor driver) (4/8)
+[2026-03-30T14:51:35.885+0000] {subprocess.py:93} INFO - 26/03/30 14:51:35 INFO FileOutputCommitter: Saved output of task 'attempt_202603301450537225701816359811631_0000_m_000001_1' to file:/opt/spark-data/cleaned_sensors.parquet/_temporary/0/task_202603301450537225701816359811631_0000_m_000001
+[2026-03-30T14:51:35.886+0000] {subprocess.py:93} INFO - 26/03/30 14:51:35 INFO SparkHadoopMapRedUtil: attempt_202603301450537225701816359811631_0000_m_000001_1: Committed. Elapsed time: 2 ms.
+[2026-03-30T14:51:35.904+0000] {subprocess.py:93} INFO - 26/03/30 14:51:35 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 2669 bytes result sent to driver
+[2026-03-30T14:51:35.904+0000] {subprocess.py:93} INFO - 26/03/30 14:51:35 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 42567 ms on 0927b5195af5 (executor driver) (5/8)
+[2026-03-30T14:51:36.255+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO FileOutputCommitter: Saved output of task 'attempt_202603301450537225701816359811631_0000_m_000000_0' to file:/opt/spark-data/cleaned_sensors.parquet/_temporary/0/task_202603301450537225701816359811631_0000_m_000000
+[2026-03-30T14:51:36.256+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO SparkHadoopMapRedUtil: attempt_202603301450537225701816359811631_0000_m_000000_0: Committed. Elapsed time: 5 ms.
+[2026-03-30T14:51:36.261+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 2626 bytes result sent to driver
+[2026-03-30T14:51:36.272+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 42961 ms on 0927b5195af5 (executor driver) (6/8)
+[2026-03-30T14:51:36.308+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO FileOutputCommitter: Saved output of task 'attempt_202603301450537225701816359811631_0000_m_000002_2' to file:/opt/spark-data/cleaned_sensors.parquet/_temporary/0/task_202603301450537225701816359811631_0000_m_000002
+[2026-03-30T14:51:36.310+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO SparkHadoopMapRedUtil: attempt_202603301450537225701816359811631_0000_m_000002_2: Committed. Elapsed time: 1 ms.
+[2026-03-30T14:51:36.315+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO Executor: Finished task 2.0 in stage 0.0 (TID 2). 2626 bytes result sent to driver
+[2026-03-30T14:51:36.321+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 42988 ms on 0927b5195af5 (executor driver) (7/8)
+[2026-03-30T14:51:36.394+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO FileOutputCommitter: Saved output of task 'attempt_202603301450537225701816359811631_0000_m_000003_3' to file:/opt/spark-data/cleaned_sensors.parquet/_temporary/0/task_202603301450537225701816359811631_0000_m_000003
+[2026-03-30T14:51:36.394+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO SparkHadoopMapRedUtil: attempt_202603301450537225701816359811631_0000_m_000003_3: Committed. Elapsed time: 1 ms.
+[2026-03-30T14:51:36.396+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO Executor: Finished task 3.0 in stage 0.0 (TID 3). 2626 bytes result sent to driver
+[2026-03-30T14:51:36.398+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 43065 ms on 0927b5195af5 (executor driver) (8/8)
+[2026-03-30T14:51:36.400+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO DAGScheduler: ResultStage 0 (parquet at NativeMethodAccessorImpl.java:0) finished in 43.285 s
+[2026-03-30T14:51:36.400+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+[2026-03-30T14:51:36.404+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+[2026-03-30T14:51:36.405+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+[2026-03-30T14:51:36.419+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO DAGScheduler: Job 0 finished: parquet at NativeMethodAccessorImpl.java:0, took 43.357671 s
+[2026-03-30T14:51:36.420+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO FileFormatWriter: Start to commit write Job 18f16e28-d09b-480d-8a08-fc8815a17ad1.
+[2026-03-30T14:51:36.495+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO FileFormatWriter: Write Job 18f16e28-d09b-480d-8a08-fc8815a17ad1 committed. Elapsed time: 79 ms.
+[2026-03-30T14:51:36.500+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO FileFormatWriter: Finished processing stats for write job 18f16e28-d09b-480d-8a08-fc8815a17ad1.
+[2026-03-30T14:51:36.514+0000] {subprocess.py:93} INFO - Cleaning Complete: Saved to cleaned_sensors.parquet
+[2026-03-30T14:51:36.652+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO SparkContext: Invoking stop() from shutdown hook
+[2026-03-30T14:51:36.653+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2026-03-30T14:51:36.683+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO SparkUI: Stopped Spark web UI at http://0927b5195af5:4040
+[2026-03-30T14:51:36.713+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2026-03-30T14:51:36.743+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO MemoryStore: MemoryStore cleared
+[2026-03-30T14:51:36.743+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO BlockManager: BlockManager stopped
+[2026-03-30T14:51:36.759+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2026-03-30T14:51:36.762+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2026-03-30T14:51:36.774+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO SparkContext: Successfully stopped SparkContext
+[2026-03-30T14:51:36.775+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO ShutdownHookManager: Shutdown hook called
+[2026-03-30T14:51:36.776+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-a1eaaaec-9f5e-4edc-8642-616de6b47767
+[2026-03-30T14:51:36.781+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-870e0951-0e4a-4be0-8aa0-21cee00b1ad4
+[2026-03-30T14:51:36.787+0000] {subprocess.py:93} INFO - 26/03/30 14:51:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-870e0951-0e4a-4be0-8aa0-21cee00b1ad4/pyspark-3cd1b531-9fb9-45a4-9ddf-bce38cc6eac5
+[2026-03-30T14:51:36.952+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-30T14:51:37.008+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=sensor_pipeline, task_id=spark_clean_data, execution_date=20260330T144942, start_date=20260330T145035, end_date=20260330T145137
+[2026-03-30T14:51:37.076+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-30T14:51:37.129+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

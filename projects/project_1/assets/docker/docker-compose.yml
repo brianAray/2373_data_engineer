@@ -132,6 +132,22 @@ services:
   # =============================================================================
   # AIRFLOW (Custom Image with Spark Client)
   # =============================================================================
+  postgres:
+      image: postgres:16
+      container_name: streamflow-postgres
+      environment:
+        - POSTGRES_USER=airflow
+        - POSTGRES_PASSWORD=airflow
+        - POSTGRES_DB=airflow
+      volumes:
+        - postgres_data:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD", "pg_isready", "-U", "airflow"]
+        interval: 10s
+        retries: 5
+      networks:
+        - streamflow-network
+  
   airflow:
     build:
       context: .
@@ -143,8 +159,8 @@ services:
       - "8082:8080"
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
-      - AIRFLOW__CORE__FERNET_KEY=your-fernet-key-here-replace-in-production
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__FERNET_KEY=XlHiiqF0hj2-1lLU4ODVSr_Wpa88VcUulI0leEYDxgM=
       - AIRFLOW__CORE__LOAD_EXAMPLES=false
       - AIRFLOW__WEBSERVER__SECRET_KEY=streamflow-secret-key
       - _AIRFLOW_DB_MIGRATE=true
@@ -155,7 +171,7 @@ services:
       - ./dags:/opt/airflow/dags
       - ./scripts:/opt/airflow/scripts
       - ./jobs:/opt/spark-jobs
-      - spark_data:/opt/spark-data
+      - ./data:/opt/spark-data
       - ./logs:/opt/airflow/logs
       - airflow_data:/opt/airflow
     command: standalone
@@ -165,6 +181,8 @@ services:
       timeout: 10s
       retries: 5
     depends_on:
+      postgres:
+        condition: service_healthy
       kafka:
         condition: service_healthy
       spark-master:
@@ -185,3 +203,4 @@ volumes:
   kafka_data:
   airflow_data:
   spark_data:
+  postgres_data:

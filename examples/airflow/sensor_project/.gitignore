@@ -1,4 +1,7 @@
 .venv/
 data/*
 logs/
+<<<<<<< HEAD
 __pycache__/
+=======
+>>>>>>> d1a55616dd5ef39a9fa86a34ce14ce7591732dc8

@@ -1,0 +1,158 @@
+[2026-04-20T14:49:47.568+0000] {processor.py:186} INFO - Started process (PID=173) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:49:47.573+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:49:47.576+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:49:47.575+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:49:47.614+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:49:47.609+0000] {dagbag.py:386} ERROR - Failed to import: /opt/airflow/dags/databricks_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 382, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/databricks_dag.py", line 19, in <module>
+    start_data=datetime(2026,20,4),
+               ^^^^^^^^^^^^^^^^^^^
+ValueError: month must be in 1..12
+[2026-04-20T14:49:47.617+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:49:47.648+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.093 seconds
+[2026-04-20T14:50:17.882+0000] {processor.py:186} INFO - Started process (PID=178) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:50:17.883+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:50:17.887+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:50:17.886+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:50:17.914+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:50:17.909+0000] {dagbag.py:386} ERROR - Failed to import: /opt/airflow/dags/databricks_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 382, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/databricks_dag.py", line 19, in <module>
+    start_data=datetime(2026,20,4),
+               ^^^^^^^^^^^^^^^^^^^
+ValueError: month must be in 1..12
+[2026-04-20T14:50:17.916+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:50:17.941+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.067 seconds
+[2026-04-20T14:50:48.141+0000] {processor.py:186} INFO - Started process (PID=183) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:50:48.143+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:50:48.146+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:50:48.146+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:50:48.163+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:50:48.159+0000] {dagbag.py:386} ERROR - Failed to import: /opt/airflow/dags/databricks_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 382, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/databricks_dag.py", line 19, in <module>
+    start_data=datetime(2026,20,4),
+               ^^^^^^^^^^^^^^^^^^^
+ValueError: month must be in 1..12
+[2026-04-20T14:50:48.165+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:50:48.203+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.069 seconds
+[2026-04-20T14:50:54.297+0000] {processor.py:186} INFO - Started process (PID=188) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:50:54.301+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:50:54.306+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:50:54.304+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:50:54.340+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:50:54.335+0000] {dagbag.py:386} ERROR - Failed to import: /opt/airflow/dags/databricks_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 382, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/databricks_dag.py", line 14, in <module>
+    with DAG(
+         ^^^^
+TypeError: DAG.__init__() got an unexpected keyword argument 'start_data'
+[2026-04-20T14:50:54.342+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:50:54.371+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.088 seconds
+[2026-04-20T14:51:24.654+0000] {processor.py:186} INFO - Started process (PID=193) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:51:24.655+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:51:24.659+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:51:24.658+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:51:24.674+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:51:24.670+0000] {dagbag.py:386} ERROR - Failed to import: /opt/airflow/dags/databricks_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 382, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/databricks_dag.py", line 14, in <module>
+    with DAG(
+         ^^^^
+TypeError: DAG.__init__() got an unexpected keyword argument 'start_data'
+[2026-04-20T14:51:24.676+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:51:24.700+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.054 seconds
+[2026-04-20T14:51:55.220+0000] {processor.py:186} INFO - Started process (PID=198) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:51:55.222+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:51:55.225+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:51:55.224+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:51:55.239+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:51:55.236+0000] {dagbag.py:386} ERROR - Failed to import: /opt/airflow/dags/databricks_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 382, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/databricks_dag.py", line 14, in <module>
+    with DAG(
+         ^^^^
+TypeError: DAG.__init__() got an unexpected keyword argument 'start_data'
+[2026-04-20T14:51:55.241+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:51:55.281+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.067 seconds
+[2026-04-20T14:52:25.729+0000] {processor.py:186} INFO - Started process (PID=203) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:52:25.733+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:52:25.739+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:52:25.737+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:52:25.792+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:52:25.783+0000] {dagbag.py:386} ERROR - Failed to import: /opt/airflow/dags/databricks_dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 382, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/databricks_dag.py", line 14, in <module>
+    with DAG(
+         ^^^^
+TypeError: DAG.__init__() got an unexpected keyword argument 'start_data'
+[2026-04-20T14:52:25.798+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:52:25.837+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.118 seconds
+[2026-04-20T14:52:31.843+0000] {processor.py:186} INFO - Started process (PID=208) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:52:31.848+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:52:31.852+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:52:31.852+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:52:31.935+0000] {processor.py:925} INFO - DAG(s) 'trigger_databricks_job' retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:52:32.128+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:52:32.126+0000] {override.py:1858} INFO - Created Permission View: can read on DAG:trigger_databricks_job
+[2026-04-20T14:52:32.140+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:52:32.139+0000] {override.py:1858} INFO - Created Permission View: can edit on DAG:trigger_databricks_job
+[2026-04-20T14:52:32.149+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:52:32.148+0000] {override.py:1858} INFO - Created Permission View: can delete on DAG:trigger_databricks_job
+[2026-04-20T14:52:32.150+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:52:32.150+0000] {dag.py:3211} INFO - Sync 1 DAGs
+[2026-04-20T14:52:32.164+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:52:32.163+0000] {dag.py:3234} INFO - Creating ORM DAG for trigger_databricks_job
+[2026-04-20T14:52:32.165+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:52:32.164+0000] {dag.py:4138} INFO - Setting next_dagrun for trigger_databricks_job to None, run_after=None
+[2026-04-20T14:52:32.190+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.357 seconds
+[2026-04-20T14:53:02.306+0000] {processor.py:186} INFO - Started process (PID=216) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:53:02.309+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:53:02.316+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:53:02.314+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:53:02.359+0000] {processor.py:925} INFO - DAG(s) 'trigger_databricks_job' retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:53:02.409+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:53:02.409+0000] {dag.py:3211} INFO - Sync 1 DAGs
+[2026-04-20T14:53:02.435+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:53:02.434+0000] {dag.py:4138} INFO - Setting next_dagrun for trigger_databricks_job to None, run_after=None
+[2026-04-20T14:53:02.464+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.182 seconds
+[2026-04-20T14:53:32.625+0000] {processor.py:186} INFO - Started process (PID=221) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:53:32.627+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:53:32.635+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:53:32.634+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:53:32.669+0000] {processor.py:925} INFO - DAG(s) 'trigger_databricks_job' retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:53:32.699+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:53:32.698+0000] {dag.py:3211} INFO - Sync 1 DAGs
+[2026-04-20T14:53:32.713+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:53:32.712+0000] {dag.py:4138} INFO - Setting next_dagrun for trigger_databricks_job to None, run_after=None
+[2026-04-20T14:53:32.737+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.118 seconds
+[2026-04-20T14:54:03.312+0000] {processor.py:186} INFO - Started process (PID=226) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:54:03.314+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:54:03.323+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:54:03.322+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:54:03.378+0000] {processor.py:925} INFO - DAG(s) 'trigger_databricks_job' retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:54:03.426+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:54:03.425+0000] {dag.py:3211} INFO - Sync 1 DAGs
+[2026-04-20T14:54:03.462+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:54:03.460+0000] {dag.py:4138} INFO - Setting next_dagrun for trigger_databricks_job to None, run_after=None
+[2026-04-20T14:54:03.504+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.208 seconds
+[2026-04-20T14:54:33.693+0000] {processor.py:186} INFO - Started process (PID=231) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:54:33.696+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:54:33.700+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:54:33.699+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:54:33.740+0000] {processor.py:925} INFO - DAG(s) 'trigger_databricks_job' retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:54:33.779+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:54:33.778+0000] {dag.py:3211} INFO - Sync 1 DAGs
+[2026-04-20T14:54:33.800+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:54:33.800+0000] {dag.py:4138} INFO - Setting next_dagrun for trigger_databricks_job to None, run_after=None
+[2026-04-20T14:54:33.838+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.155 seconds
+[2026-04-20T14:55:04.144+0000] {processor.py:186} INFO - Started process (PID=236) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:55:04.145+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:55:04.150+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:55:04.149+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:55:04.177+0000] {processor.py:925} INFO - DAG(s) 'trigger_databricks_job' retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:55:04.217+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:55:04.217+0000] {dag.py:3211} INFO - Sync 1 DAGs
+[2026-04-20T14:55:04.234+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:55:04.233+0000] {dag.py:4138} INFO - Setting next_dagrun for trigger_databricks_job to None, run_after=None
+[2026-04-20T14:55:04.263+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.129 seconds
+[2026-04-20T14:55:34.533+0000] {processor.py:186} INFO - Started process (PID=241) to work on /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:55:34.535+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/databricks_dag.py for tasks to queue
+[2026-04-20T14:55:34.539+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:55:34.538+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:55:34.565+0000] {processor.py:925} INFO - DAG(s) 'trigger_databricks_job' retrieved from /opt/airflow/dags/databricks_dag.py
+[2026-04-20T14:55:34.592+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:55:34.592+0000] {dag.py:3211} INFO - Sync 1 DAGs
+[2026-04-20T14:55:34.609+0000] {logging_mixin.py:190} INFO - [2026-04-20T14:55:34.609+0000] {dag.py:4138} INFO - Setting next_dagrun for trigger_databricks_job to None, run_after=None
+[2026-04-20T14:55:34.638+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/databricks_dag.py took 0.112 seconds

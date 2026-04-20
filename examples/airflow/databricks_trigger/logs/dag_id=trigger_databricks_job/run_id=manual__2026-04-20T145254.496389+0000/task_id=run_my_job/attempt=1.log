@@ -1,0 +1,24 @@
+[2026-04-20T14:52:56.432+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-04-20T14:52:56.462+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: trigger_databricks_job.run_my_job manual__2026-04-20T14:52:54.496389+00:00 [queued]>
+[2026-04-20T14:52:56.476+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: trigger_databricks_job.run_my_job manual__2026-04-20T14:52:54.496389+00:00 [queued]>
+[2026-04-20T14:52:56.476+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 2
+[2026-04-20T14:52:56.494+0000] {taskinstance.py:2879} INFO - Executing <Task(DatabricksRunNowOperator): run_my_job> on 2026-04-20 14:52:54.496389+00:00
+[2026-04-20T14:52:56.505+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=213) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-04-20T14:52:56.508+0000] {standard_task_runner.py:72} INFO - Started process 214 to run task
+[2026-04-20T14:52:56.505+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'trigger_databricks_job', 'run_my_job', 'manual__2026-04-20T14:52:54.496389+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/databricks_dag.py', '--cfg-path', '/tmp/tmpgbkbgz93']
+[2026-04-20T14:52:56.509+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask run_my_job
+[2026-04-20T14:52:56.607+0000] {task_command.py:467} INFO - Running <TaskInstance: trigger_databricks_job.run_my_job manual__2026-04-20T14:52:54.496389+00:00 [running]> on host 74541af2b987
+[2026-04-20T14:52:56.732+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='trigger_databricks_job' AIRFLOW_CTX_TASK_ID='run_my_job' AIRFLOW_CTX_EXECUTION_DATE='2026-04-20T14:52:54.496389+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-20T14:52:54.496389+00:00'
+[2026-04-20T14:52:56.734+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-04-20T14:52:56.812+0000] {base.py:84} INFO - Retrieving connection 'databricks_default'
+[2026-04-20T14:52:57.671+0000] {databricks.py:83} INFO - Run submitted with run_id: 299353239543346
+[2026-04-20T14:52:58.392+0000] {databricks.py:135} INFO - run_my_job in run state: {'life_cycle_state': 'RUNNING', 'result_state': '', 'state_message': ''}
+[2026-04-20T14:52:58.393+0000] {databricks.py:136} INFO - View run status, Spark UI, and logs at https://dbc-0009ece4-97bd.cloud.databricks.com/?o=7474654112859621#job/1065615312316575/run/299353239543346
+[2026-04-20T14:52:58.394+0000] {databricks.py:137} INFO - Sleeping for 30 seconds.
+[2026-04-20T14:53:28.803+0000] {databricks.py:94} INFO - run_my_job completed successfully.
+[2026-04-20T14:53:28.805+0000] {databricks.py:95} INFO - View run status, Spark UI, and logs at https://dbc-0009ece4-97bd.cloud.databricks.com/?o=7474654112859621#job/1065615312316575/run/299353239543346
+[2026-04-20T14:53:28.820+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-04-20T14:53:28.821+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=trigger_databricks_job, task_id=run_my_job, run_id=manual__2026-04-20T14:52:54.496389+00:00, execution_date=20260420T145254, start_date=20260420T145256, end_date=20260420T145328
+[2026-04-20T14:53:28.881+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2026-04-20T14:53:28.903+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-04-20T14:53:28.907+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

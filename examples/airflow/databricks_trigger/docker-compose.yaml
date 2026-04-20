@@ -1,0 +1,45 @@
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+
+  airflow-common: &airflow-common
+    build: .
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=2c1b3d24893036eca53db6e036d9aa182aeac3753a5579063af65e36fe73
+      - AIRFLOW__LOGGING__BASE_LOG_FOLDER=/opt/airflow/logs
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs  # Shared log directory
+    user: "${AIRFLOW_UID:-50000}:0"
+
+  airflow-webserver:
+    <<: *airflow-common
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    command: webserver
+
+  airflow-scheduler:
+    <<: *airflow-common
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      bash -c "python -m airflow db init && 
+      python -m airflow users create --username admin --firstname admin --lastname admin --role Admin --email admin@example.com --password admin && 
+      python -m airflow scheduler"
